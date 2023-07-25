@@ -7,7 +7,7 @@ import (
 )
 
 func TestClient_Observations(t *testing.T) {
-	search, err := client.ObservationByTown("Parkville", "Vic")
+	search, err := client.ObservationByTown("helensburgh", "nsw")
 	if err != nil {
 		fmt.Print(err)
 	}

@@ -20,7 +20,6 @@ type Observations struct {
 		ResponseTimestamp time.Time `json:"response_timestamp"`
 		IssueTime         time.Time `json:"issue_time"`
 		ObservationTime   time.Time `json:"observation_time"`
-		Copyright         string    `json:"copyright"`
 	} `json:"metadata"`
 	Data struct {
 		Temp          float64 `json:"temp"`
