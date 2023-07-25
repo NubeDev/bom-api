@@ -5,6 +5,8 @@ import "fmt"
 /*
 Weather
 
+http://www.bom.gov.au/places/nsw/helensburgh/
+
 pass in geohash, The geohash string is 6 characters.
 
 observations
