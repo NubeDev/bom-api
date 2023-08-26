@@ -1,6 +1,7 @@
 package bom
 
 import (
+	"errors"
 	"fmt"
 )
 
@@ -37,7 +38,11 @@ func (inst *Client) SearchByTown(town, state string) (*Search, string, error) {
 		return nil, "", err
 	}
 	data := resp.Result().(*Search)
-	return data, getGeo(data), nil
+	geo := getGeo(data)
+	if len(geo) != 6 {
+		return nil, "", errors.New(fmt.Sprintf("invalid geo: %s lenght: %d", geo, len(geo)))
+	}
+	return data, geo, nil
 }
 
 func (inst *Client) SearchByZip(postCode string) (*Search, string, error) {
@@ -49,7 +54,11 @@ func (inst *Client) SearchByZip(postCode string) (*Search, string, error) {
 		return nil, "", err
 	}
 	data := resp.Result().(*Search)
-	return data, getGeo(data), nil
+	geo := getGeo(data)
+	if len(geo) != 6 {
+		return nil, "", errors.New(fmt.Sprintf("invalid geo: %s lenght: %d", geo, len(geo)))
+	}
+	return data, geo, nil
 }
 
 func getGeo(data *Search) string {

@@ -13,3 +13,11 @@ func TestClient_Observations(t *testing.T) {
 	}
 	pprint.PrintJOSN(search)
 }
+
+func TestClient_ObservationsByZip(t *testing.T) {
+	search, err := client.ObservationByZip("2508")
+	if err != nil {
+		fmt.Print(err)
+	}
+	pprint.PrintJOSN(search)
+}
